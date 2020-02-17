@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuang.mapper.Usermapper">
+<!--    <resultMap id = "BaseResultMap" type="com.example.firstspringboot.entity.People">-->
+<!--        <id column ="id" jdbcType = "VARCHAR" property = "id"></id>-->
+<!--        <result column= "name" jdbcType = "VARCHAR" property="name"/>-->
+<!--    </resultMap>-->
+
+    <select id ="getAll" resultType = "user">
+     select * from user
+    </select>
+    <insert id="add" parameterType="com.kuang.entity.User">
+        insert into user(id,username,hobby,age)
+        values(#{id},#{username},#{hobby},#{age})
+    </insert>
+    <select id="findById" resultType="com.kuang.entity.User" parameterType="int">
+        select * from user where id = #{id}
+    </select>
+    <delete id  = "delete" parameterType = "int"  >
+         delete from user where id = #{id}
+     </delete>
+<!--    <insert id = "insert" parameterType = "com.example.firstspringboot.entity.People"  >-->
+<!--    insert  into people(id ,name ) values(#{id},#{name})-->
+<!--    </insert>-->
+<!--    <update id ="updateByPrimaryKey" parameterType="com.example.firstspringboot.entity.People"  >-->
+<!--        update people set name =#{name } where id =#{id}-->
+<!--    </update>-->
+</mapper>
